@@ -27,6 +27,13 @@ class _TapFightState extends State<TapFight> {
     });
   }
 
+  void buttonReset() {
+    setState(() {
+      playerOneCount = 0;
+      playerTwoCount = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -85,6 +92,21 @@ class _TapFightState extends State<TapFight> {
                     ),
                   ),
                 ),
+              ),
+              Container(
+                height: 50.0,
+                width: 100.0,
+                color: Colors.white,
+                  child: TextButton(
+                    onPressed: () {
+                      buttonReset();
+                    },
+                    child: Text('RESET',
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.black,
+                    ),),
+                  ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),

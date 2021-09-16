@@ -4,8 +4,28 @@ void main() {
   runApp(TapFight());
 }
 
-class TapFight extends StatelessWidget {
+class TapFight extends StatefulWidget {
   const TapFight({Key? key}) : super(key: key);
+
+  @override
+  _TapFightState createState() => _TapFightState();
+}
+
+class _TapFightState extends State<TapFight> {
+  int playerOneCount = 0;
+  int playerTwoCount = 0;
+
+  void buttonOneCounter() {
+    setState(() {
+      playerOneCount++;
+    });
+  }
+
+  void buttonTwoCounter() {
+    setState(() {
+      playerTwoCount++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +47,8 @@ class TapFight extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      print('Button 2 Registered');
+                      buttonTwoCounter();
+                      print('Button 2 count $playerTwoCount');
                     },
                     child: RotationTransition(
                       turns: AlwaysStoppedAnimation(180 / 360),
@@ -37,6 +58,48 @@ class TapFight extends StatelessWidget {
                           fontSize: 45.0,
                           color: Colors.black,
                         ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 100.0,
+                  width: 150.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    color: Colors.white,
+                  ),
+                  child: Center(
+                    child: RotationTransition(
+                      turns: AlwaysStoppedAnimation(180 / 360),
+                      child: Text(
+                        '$playerTwoCount',
+                        style: TextStyle(
+                          fontSize: 75.0,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 100.0,
+                  width: 150.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    color: Colors.white,
+                  ),
+                  child: Center(
+                    child: Text(
+                      '$playerOneCount',
+                      style: TextStyle(
+                        fontSize: 75.0,
                       ),
                     ),
                   ),
@@ -53,7 +116,8 @@ class TapFight extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      print('Button 1 Registered');
+                      buttonOneCounter();
+                      print('Button 1 count $playerOneCount');
                     },
                     child: Text(
                       "Player 1",

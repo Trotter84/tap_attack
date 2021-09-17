@@ -35,8 +35,6 @@ class _TapFightState extends State<TapFight> {
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -89,7 +87,7 @@ class _TapFightState extends State<TapFight> {
                         '$playerTwoCount',
                         style: TextStyle(
                           fontSize: 75.0,
-                          color: (playerTwoCount > playerOneCount) ? Colors.green : Colors.red,
+                          color: (playerTwoCount > playerOneCount) ? Colors.green : (playerTwoCount < playerOneCount) ? Colors.red : Colors.black,
                         ),
                       ),
                     ),
@@ -129,7 +127,7 @@ class _TapFightState extends State<TapFight> {
                       '$playerOneCount',
                       style: TextStyle(
                         fontSize: 75.0,
-                        color: (playerOneCount > playerTwoCount) ? Colors.green : Colors.red,
+                        color: (playerOneCount > playerTwoCount) ? Colors.green : (playerOneCount < playerTwoCount) ? Colors.red : Colors.black,
                       ),
                     ),
                   ),

@@ -12,6 +12,7 @@ class TapFight extends StatefulWidget {
 }
 
 class _TapFightState extends State<TapFight> {
+
   int playerOneCount = 0;
   int playerTwoCount = 0;
 
@@ -33,6 +34,8 @@ class _TapFightState extends State<TapFight> {
       playerTwoCount = 0;
     });
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +89,7 @@ class _TapFightState extends State<TapFight> {
                         '$playerTwoCount',
                         style: TextStyle(
                           fontSize: 75.0,
-                          color: Colors.black,
+                          color: (playerTwoCount > playerOneCount) ? Colors.green : Colors.red,
                         ),
                       ),
                     ),
@@ -97,16 +100,20 @@ class _TapFightState extends State<TapFight> {
                 height: 50.0,
                 width: 100.0,
                 color: Colors.white,
-                  child: TextButton(
-                    onPressed: () {
-                      buttonReset();
-                    },
-                    child: Text('RESET',
+                child: TextButton(
+                  onPressed: () {
+                    buttonReset();
+                    print('RESET');
+                    print('Counters set to 0');
+                  },
+                  child: Text(
+                    'RESET',
                     style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.black,
-                    ),),
+                      fontSize: 23.0,
+                      color: Colors.black,
+                    ),
                   ),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -122,6 +129,7 @@ class _TapFightState extends State<TapFight> {
                       '$playerOneCount',
                       style: TextStyle(
                         fontSize: 75.0,
+                        color: (playerOneCount > playerTwoCount) ? Colors.green : Colors.red,
                       ),
                     ),
                   ),

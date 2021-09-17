@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tap_attack">
    <application
-        android:label="tap_attack"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Tap Attack"
+        android:icon="@mipmap/tab_attack_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

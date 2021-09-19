@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
+
 
 void main() {
   runApp(TapFight());
@@ -12,6 +14,18 @@ class TapFight extends StatefulWidget {
 }
 
 class _TapFightState extends State<TapFight> {
+
+  Duration timeout = Duration(seconds: 3);
+  Duration ms = Duration(milliseconds: 1);
+
+  void startTimeout([int? milliseconds]) {
+    var duration = milliseconds == null ? timeout : ms * milliseconds;
+    Timer.periodic(duration, tic);
+  }
+
+  void tic(Timer timer) {  // callback function
+    print('working'); // when 0 stop timer
+  }
 
   int playerOneCount = 0;
   int playerTwoCount = 0;
@@ -100,7 +114,7 @@ class _TapFightState extends State<TapFight> {
                 color: Colors.white,
                 child: TextButton(
                   onPressed: () {
-                    buttonReset();
+                    startTimeout();
                     print('RESET');
                     print('Counters set to 0');
                   },
